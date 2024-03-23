@@ -1,6 +1,6 @@
 type InputProps = Kaioken.FCProps<{
   className?: string;
-  ref: Kaioken.Ref<HTMLInputElement>;
+  ref: Kaioken.Ref<unknown>;
 }>;
 
 export const Input = (props: InputProps) => {

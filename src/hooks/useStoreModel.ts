@@ -1,20 +1,24 @@
-// @ts-ignore
 
-import { useEffect, useModel } from "kaioken"
+import { useEffect, useModel, type Store, MethodFactory } from "kaioken"
 
-
-type GetKeys<T> = keyof ReturnType<T>['value']
-
-export const useStoreModel = <T,>(store: T, key: GetKeys<T>) => {
+export const useStoreModel = <
+  U extends HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement, 
+  A extends string | number | boolean, 
+  T
+>(store: Store<T, MethodFactory<T>>, key: keyof T) => {
   const storeHook = store()
-  const [ref, value, setValue] = useModel(storeHook.value[key])
+  const [ref, value, setValue] = useModel<U, A>(storeHook.value[key] as any)
 
   useEffect(() => {
     store.setState((_state) => {
-      _state[key] = value
+      _state[key] = value as any
       return _state
     })
   }, [value])
 
-  return [ref, value, setValue]
+  useEffect(() => {
+    setValue(storeHook.value[key])
+  }, [storeHook.value[key]])
+
+  return [ref, value, setValue] as const
 }

@@ -1,4 +1,3 @@
-import { useModel } from "kaioken";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { useFormStore } from "$/store/useFormStore";
@@ -9,7 +8,12 @@ type FormProps = Kaioken.FCProps<{
 }>;
 
 export const Form = (props: FormProps) => {
-  const x = useStoreModel(useFormStore, 'name')
+  const { value } = useFormStore()
+  const [cardNameRef] = useStoreModel(useFormStore, 'name')
+  const [cardNumberRef] = useStoreModel(useFormStore, 'number')
+  const [expireMonthRef] = useStoreModel(useFormStore, 'month')
+  const [expireYearRef] = useStoreModel(useFormStore, 'year')
+  const [CVCRef] = useStoreModel(useFormStore, 'cvc')
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
@@ -21,8 +25,7 @@ export const Form = (props: FormProps) => {
       className={`grid grid-cols-2 max-w-[23.8rem] gap-x-5 gap-y-[1.62rem] ${props.className}`}
       onsubmit={handleSubmit}
     >
-      boop
-      {/* <Input className="col-start-1 col-end-3" ref={cardholderRef}>
+      <Input className="col-start-1 col-end-3" ref={cardNameRef}>
         Cardholder Name
       </Input>
       <Input className="col-start-1 col-end-3" ref={cardNumberRef}>
@@ -38,7 +41,7 @@ export const Form = (props: FormProps) => {
         </div>
       </div>
       <Input ref={CVCRef}>CSV</Input>
-      <Button className="col-start-1 col-end-3">Confirm</Button> */}
+      <Button className="col-start-1 col-end-3">Confirm</Button>
     </form>
   );
 };
