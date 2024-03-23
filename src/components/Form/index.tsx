@@ -8,16 +8,15 @@ type FormProps = Kaioken.FCProps<{
 }>;
 
 export const Form = (props: FormProps) => {
-  const { value } = useFormStore()
-  const [cardNameRef] = useStoreModel(useFormStore, 'name')
-  const [cardNumberRef] = useStoreModel(useFormStore, 'number')
-  const [expireMonthRef] = useStoreModel(useFormStore, 'month')
-  const [expireYearRef] = useStoreModel(useFormStore, 'year')
-  const [CVCRef] = useStoreModel(useFormStore, 'cvc')
+  const [cardNameRef] = useStoreModel(useFormStore, "name");
+  const [cardNumberRef] = useStoreModel(useFormStore, "number");
+  const [expireMonthRef] = useStoreModel(useFormStore, "month");
+  const [expireYearRef] = useStoreModel(useFormStore, "year");
+  const [CVCRef] = useStoreModel(useFormStore, "cvc");
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
-    console.log(e)
+    console.log(e);
   };
 
   return (

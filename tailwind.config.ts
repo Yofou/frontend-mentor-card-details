@@ -3,7 +3,7 @@ import plugin from 'tailwindcss/plugin'
 
 export default {
   content: [
-    "./src/{components,layouts,pages,renderer}/**/*.{html,js,jsx,ts,tsx}",
+    "./src/**/*.{html,js,jsx,ts,tsx}",
   ],
   theme: {
     colors: {

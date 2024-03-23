@@ -1,7 +1,7 @@
 import { createStore } from "kaioken";
 
 export const useFormStore = createStore({
-  name: '',
+  name: 'moosie goosie',
   number: '',
   month: '',
   year: '',

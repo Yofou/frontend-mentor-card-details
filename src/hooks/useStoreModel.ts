@@ -7,6 +7,7 @@ export const useStoreModel = <
   T
 >(store: Store<T, MethodFactory<T>>, key: keyof T) => {
   const storeHook = store()
+
   const [ref, value, setValue] = useModel<U, A>(storeHook.value[key] as any)
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export const useStoreModel = <
   }, [value])
 
   useEffect(() => {
-    setValue(storeHook.value[key])
+    setValue(storeHook.value[key] as A)
   }, [storeHook.value[key]])
 
   return [ref, value, setValue] as const
