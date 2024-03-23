@@ -27,6 +27,7 @@ const CardDisplayBG = () => {
       height="245"
       viewBox="0 0 423 245"
       fill="none"
+      className="w-full"
     >
       <g opacity="0.847405" filter="url(#filter0_f_1_53)">
         <ellipse
@@ -145,7 +146,7 @@ export const CardDisplay = () => {
           <CardDisplayIcon />
         </div>
 
-        <div className="absolute top-0 left-0">
+        <div className="w-full absolute top-0 left-0 right-0">
           <CardDisplayBG />
         </div>
 
@@ -157,6 +158,13 @@ export const CardDisplay = () => {
         </p>
         <p className="absolute top-[12.53rem] right-8 text-white text-body-l font-medium uppercase">
           {month}/{year}
+        </p>
+      </div>
+
+      <div className="bg-grey-gradient w-[447px] h-[245px] rounded-[.625rem] left-[16.12rem] top-[29.31rem] absolute">
+        <div className="mt-[1.44rem] w-full h-[3.375rem] bg-[#2F2F2F]"></div>
+        <p className="mt-[1.5rem] rounded-[0.25rem] w-[22.56rem] h-[2.375rem] pr-4 py-[.63rem] text-body-l font-medium text-white bg-[#ADB6BE] mx-auto text-right">
+          {value.cvc}
         </p>
       </div>
     </div>

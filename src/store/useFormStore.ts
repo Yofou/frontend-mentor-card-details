@@ -3,9 +3,9 @@ import { createStore } from "kaioken";
 export const useFormStore = createStore({
   name: 'moosie goosie',
   number: '',
-  month: '',
-  year: '',
-  cvc: '',
+  month: '06',
+  year: '12',
+  cvc: '123',
 }, (set) => ({
   setName: (value: string) => set((state) => {
     state['name'] = value

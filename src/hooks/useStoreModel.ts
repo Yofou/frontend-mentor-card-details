@@ -1,4 +1,3 @@
-
 import { useEffect, useModel, type Store, MethodFactory } from "kaioken"
 
 export const useStoreModel = <

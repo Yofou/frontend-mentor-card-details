@@ -2,6 +2,7 @@ import { Button } from "./Button";
 import { Input } from "./Input";
 import { useFormStore } from "$/store/useFormStore";
 import { useStoreModel } from "$/hooks/useStoreModel";
+import { useStoreMask } from "$/hooks/useStoreMask";
 
 type FormProps = Kaioken.FCProps<{
   className?: string;
@@ -9,10 +10,18 @@ type FormProps = Kaioken.FCProps<{
 
 export const Form = (props: FormProps) => {
   const [cardNameRef] = useStoreModel(useFormStore, "name");
-  const [cardNumberRef] = useStoreModel(useFormStore, "number");
-  const [expireMonthRef] = useStoreModel(useFormStore, "month");
-  const [expireYearRef] = useStoreModel(useFormStore, "year");
-  const [CVCRef] = useStoreModel(useFormStore, "cvc");
+  const [cardNumberRef] = useStoreMask(useFormStore, "number", {
+    mask: "0000 0000 0000",
+  });
+  const [expireMonthRef] = useStoreMask(useFormStore, "month", {
+    mask: "00",
+  });
+  const [expireYearRef] = useStoreMask(useFormStore, "year", {
+    mask: "00",
+  });
+  const [CVCRef] = useStoreMask(useFormStore, "cvc", {
+    mask: "000",
+  });
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();

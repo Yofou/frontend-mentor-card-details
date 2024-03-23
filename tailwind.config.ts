@@ -47,6 +47,9 @@ export default {
         },
         '.bg-gradient': {
           background: "linear-gradient(164deg, #6348FE 4.74%, #610595 88.83%)",
+        },
+        '.bg-grey-gradient': {
+          background: "linear-gradient(169deg, #FFF 5%, #D2D3D9 91.69%)",
         }
       })
     })
