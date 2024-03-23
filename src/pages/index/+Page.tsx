@@ -1,12 +1,9 @@
-import { Counter } from "$/components/Counter"
-import { PageTitle } from "$/components/atoms/PageTitle"
+import { Form } from "$/components/Form";
 
-export { Page }
-
-function Page() {
+export function Page() {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <PageTitle>Home</PageTitle>
+      <Form />
     </div>
   )
 }

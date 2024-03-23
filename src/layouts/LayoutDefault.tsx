@@ -1,14 +1,11 @@
-import { Navbar } from "$/components/Navbar"
+import { CardDisplay } from '$/components/CardDisplay';
+import '@fontsource-variable/space-grotesk';
 
 export function LayoutDefault({ children }: { children?: JSX.Element[] }) {
   return (
-    <div className="flex flex-col items-center m-auto w-full min-h-screen">
-      <Navbar />
-      <Content>{children}</Content>
+    <div className="grid grid-cols-[30.18rem,1fr] grid-rows-1 w-full min-h-screen">
+      <CardDisplay />
+      {children}
     </div>
   )
-}
-
-function Content({ children }: { children?: JSX.Element[] }) {
-  return <div className="p-5 pb-10  ">{children}</div>
 }
