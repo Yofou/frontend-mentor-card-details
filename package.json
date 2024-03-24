@@ -1,12 +1,12 @@
 {
   "name": "kaioken-vike-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "type": "module",
   "scripts": {
     "dev": "tsx ./express-entry.ts",
     "build": "vite build",
-    "preview": "set NODE_ENV=production&& tsx ./express-entry.ts"
+    "preview": "set NODE_ENV=production && tsx ./express-entry.ts"
   },
   "keywords": [],
   "author": "",
