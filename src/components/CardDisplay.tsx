@@ -152,13 +152,13 @@ export const CardDisplay = () => {
   }, [value.name]);
 
   const cvc = useMemo(() => {
-    if (value.cvc.length === 0) return "000"
+    if (value.cvc.length === 0) return "000";
     return value.cvc;
   }, [value.cvc]);
 
   return (
     <div className="relative w-full h-full card-bg">
-    <div className="bg-gradient w-[17.8rem] h-[9.763rem] md:w-[447px] md:h-[245px] rounded-[.375rem] md:rounded-[.625rem] z-10 top-[7.9rem] transition-all left-[10%] sm:left-[35%] overflow-hidden md:left-[10.25rem] md:top-[11.69rem] absolute shadow">
+      <div className="bg-gradient w-[17.8rem] h-[9.763rem] md:w-[447px] md:h-[245px] rounded-[.375rem] md:rounded-[.625rem] z-10 top-[7.9rem] transition-all left-[10%] sm:left-[35%] overflow-hidden md:left-[10.25rem] md:top-[11.69rem] absolute shadow">
         <div className="absolute top-[1.1rem] left-[1.19rem] md:top-[1.75rem] md:left-8">
           <CardDisplayIcon className="w-[54px] h-[30px] md:w-[84px] md:h-[47px]" />
         </div>
@@ -183,6 +183,52 @@ export const CardDisplay = () => {
         <p className="mt-[1.5rem] rounded-[0.25rem] w-[14.43rem] h-[1.85rem] md:w-[22.56rem] md:h-[2.375rem] pr-[0.67rem] md:pr-4 py-[.63rem] font-grotesk text-[0.5625rem] tracking-[0.08038rem] md:text-body-l font-medium text-white bg-[#ADB6BE] mx-auto text-right">
           {cvc}
         </p>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="186"
+          height="26"
+          viewBox="0 0 186 26"
+          fill="none"
+          className="hidden md:block absolute top-[10.75rem] left-[8.25rem]"
+        >
+          <rect width="115" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="121" width="22" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="149" width="22" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="177" width="9" height="4" rx="2" fill="#ADB5BE" />
+          <rect
+            width="115"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 186 22)"
+            fill="#ADB5BE"
+          />
+          <rect
+            width="22"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 65 22)"
+            fill="#ADB5BE"
+          />
+          <rect
+            width="22"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 37 22)"
+            fill="#ADB5BE"
+          />
+          <rect
+            width="9"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 9 22)"
+            fill="#ADB5BE"
+          />
+          <rect x="42" y="11" width="60" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="14" y="11" width="22" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="108" y="11" width="46" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="160" y="11" width="9" height="4" rx="2" fill="#ADB5BE" />
+        </svg>
       </div>
     </div>
   );
