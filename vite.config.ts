@@ -2,7 +2,6 @@ import path from "node:path"
 import { defineConfig } from "vite"
 import ssr from "vike/plugin"
 import kaioken from "vite-plugin-kaioken"
-import vercel from 'vite-plugin-vercel';
 
 export default defineConfig({
   resolve: {
@@ -19,5 +18,5 @@ export default defineConfig({
     loader: "tsx",
     include: ["**/*.tsx", "**/*.ts", "**/*.jsx", "**/*.js"],
   },
-  plugins: [ssr(), kaioken(), vercel()],
+  plugins: [ssr(), kaioken()],
 })

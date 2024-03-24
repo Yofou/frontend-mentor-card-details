@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@fontsource-variable/space-grotesk": "^5.0.17",
+    "@vercel/node": "^3.0.24",
     "express": "^4.18.2",
     "imask": "^7.5.0",
     "kaioken": "^0.11.1",
