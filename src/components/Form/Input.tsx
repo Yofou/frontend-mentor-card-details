@@ -1,9 +1,13 @@
+import { useMemo } from "kaioken";
+
 type InputProps = Kaioken.FCProps<{
   className?: string;
   ref: Kaioken.Ref<unknown>;
+  error?: string;
 }>;
 
 export const Input = (props: InputProps) => {
+  const hasError = useMemo(() => (props.error?.length ?? 0) > 0, [props.error]);
   return (
     <label className={`w-full flex flex-col gap-[.56rem] ${props.className}`}>
       {props.children && (
@@ -16,6 +20,9 @@ export const Input = (props: InputProps) => {
         ref={props.ref}
         type="text"
       />
+      {hasError && (
+        <span className="text-body-s text-red font-medium">{props.error}</span>
+      )}
     </label>
   );
 };

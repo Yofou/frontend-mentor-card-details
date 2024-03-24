@@ -11,5 +11,6 @@ export const onRenderClient: OnRenderClientAsync = async (pageContext) => {
     document.title = getTitle(pageContext)
   }
 
+  debugger;
   hydrate(App, container, { pageContext })
 }
