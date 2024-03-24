@@ -15,6 +15,10 @@ export default {
     },
     fontFamily: {
       grotesk: ["'Space Grotesk Variable'", 'sans-serif']
+    },
+    screens: {
+      sm: '640px',
+      md: '1340px',
     }
   },
   plugins: [
@@ -50,7 +54,18 @@ export default {
         },
         '.bg-grey-gradient': {
           background: "linear-gradient(169deg, #FFF 5%, #D2D3D9 91.69%)",
+        },
+        '.card-bg': {
+          backgroundImage: 'url(/card-display-bg.svg)',
+          backgroundColor: '#21092F',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
+        },
+        '.shadow': {
+          boxShadow: "0px 39px 60px rgba(0, 0, 0, 0.14)"
         }
+      }, {
+        respectPrefix: true
       })
     })
   ],

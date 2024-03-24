@@ -18,11 +18,11 @@ type fieldErrors = {
 }
 
 export const useFormStore = createStore({
-  name: 'moosie goosie',
+  name: '',
   number: '',
-  month: '06',
-  year: '12',
-  cvc: '123',
+  month: '',
+  year: '',
+  cvc: '',
   errors: null as fieldErrors | null,
 }, (set, get) => ({
   validate: () => {

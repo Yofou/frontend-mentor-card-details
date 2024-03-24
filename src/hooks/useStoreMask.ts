@@ -4,7 +4,15 @@ import { type FactoryOpts } from 'imask'
 
 export const useStoreMask = <T,>(store: Store<T, MethodFactory<T>>, key: keyof T, maskOptions: FactoryOpts = {}) => {
   const storeHook = store((s) => s[key])
-  const {ref, value, setUnmaskedValue} = useMask(storeHook.value as any, maskOptions)
+
+  const {
+    ref, 
+    value, 
+    setUnmaskedValue
+  } = useMask(
+    storeHook.value as any, 
+    maskOptions
+  )
 
   useEffect(() => {
     if (value !== undefined) {

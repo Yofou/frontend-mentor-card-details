@@ -4,6 +4,7 @@ type InputProps = Kaioken.FCProps<{
   className?: string;
   ref: Kaioken.Ref<unknown>;
   error?: string;
+  placeholder?: string;
 }>;
 
 export const Input = (props: InputProps) => {
@@ -17,12 +18,13 @@ export const Input = (props: InputProps) => {
       )}
       <input
         className="border w-full rounded-[.5rem] border-light-grey px-4 py-[.69rem] text-heading-l font-medium placeholder:text-deep-violet/25 text-deep-violet"
+        placeholder={props.placeholder}
         ref={props.ref}
         type="text"
       />
-      {hasError && (
+      {hasError ? (
         <span className="text-body-s text-red font-medium">{props.error}</span>
-      )}
+        ) : null}
     </label>
   );
 };

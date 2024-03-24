@@ -1,7 +1,7 @@
 import { useFormStore } from "$/store/useFormStore";
-import { useMemo } from "kaioken";
+import { ElementProps, useMemo } from "kaioken";
 
-const CardDisplayIcon = () => {
+const CardDisplayIcon = (props: ElementProps<"svg">) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +9,7 @@ const CardDisplayIcon = () => {
       height="47"
       viewBox="0 0 84 47"
       fill="none"
+      className={props.className}
     >
       <ellipse cx="23.4783" cy="23.5" rx="23.4783" ry="23.5" fill="white" />
       <path
@@ -19,7 +20,7 @@ const CardDisplayIcon = () => {
   );
 };
 
-const CardDisplayBG = () => {
+const CardDisplayBG = (props: ElementProps<"svg">) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +28,7 @@ const CardDisplayBG = () => {
       height="245"
       viewBox="0 0 423 245"
       fill="none"
-      className="w-full"
+      className={`w-full ${props.className}`}
     >
       <g opacity="0.847405" filter="url(#filter0_f_1_53)">
         <ellipse
@@ -134,37 +135,53 @@ export const CardDisplay = () => {
     if (value.month.length === 0) return "00";
     return value.month;
   }, [value.month]);
+
   const year = useMemo(() => {
     if (value.year.length === 0) return "00";
     return value.year;
   }, [value.year]);
 
+  const number = useMemo(() => {
+    if (value.number.length === 0) return "0000 0000 0000 0000";
+    return value.number;
+  }, [value.number]);
+
+  const name = useMemo(() => {
+    if (value.name.length === 0) return "JANE APPLESEED";
+    return value.name;
+  }, [value.name]);
+
+  const cvc = useMemo(() => {
+    if (value.cvc.length === 0) return "000"
+    return value.cvc;
+  }, [value.cvc]);
+
   return (
-    <div className="relative w-full h-full [background:url(/card-display-bg.svg)_#21092F_no-repeat]">
-      <div className="bg-gradient w-[447px] h-[245px] rounded-[.625rem] left-[10.25rem] top-[11.69rem] absolute">
-        <div className="absolute top-[1.75rem] left-8">
-          <CardDisplayIcon />
+    <div className="relative w-full h-full card-bg">
+    <div className="bg-gradient w-[17.8rem] h-[9.763rem] md:w-[447px] md:h-[245px] rounded-[.375rem] md:rounded-[.625rem] z-10 top-[7.9rem] transition-all left-[10%] sm:left-[35%] overflow-hidden md:left-[10.25rem] md:top-[11.69rem] absolute shadow">
+        <div className="absolute top-[1.1rem] left-[1.19rem] md:top-[1.75rem] md:left-8">
+          <CardDisplayIcon className="w-[54px] h-[30px] md:w-[84px] md:h-[47px]" />
         </div>
 
         <div className="w-full absolute top-0 left-0 right-0">
-          <CardDisplayBG />
+          <CardDisplayBG className="w-[17.8rem] h-[9.763rem] md:w-[447px] md:h-[245px]" />
         </div>
 
-        <p className="absolute top-[8.69rem] left-8 text-heading-xl text-white font-medium">
-          {value.number}
+        <p className="absolute top-[5.29rem] left-[1.19rem] md:top-[8.69rem] md:left-8 font-grotesk text-[1.125rem] md:text-heading-xl text-white font-medium">
+          {number}
         </p>
-        <p className="absolute top-[12.53rem] left-8 text-white text-body-l font-medium uppercase">
-          {value.name}
+        <p className="absolute top-[7.79rem] left-[1.19rem] md:top-[12.53rem] md:left-8 text-white font-grotesk text-[0.5625rem] tracking-[0.08038rem] md:text-body-l font-medium uppercase">
+          {name}
         </p>
-        <p className="absolute top-[12.53rem] right-8 text-white text-body-l font-medium uppercase">
+        <p className="absolute top-[7.79rem] right-[1.31rem] md:top-[12.53rem] md:right-8 text-white font-grotesk text-[0.5625rem] tracking-[0.08038rem] md:text-body-l font-medium uppercase">
           {month}/{year}
         </p>
       </div>
 
-      <div className="bg-grey-gradient w-[447px] h-[245px] rounded-[.625rem] left-[16.12rem] top-[29.31rem] absolute">
-        <div className="mt-[1.44rem] w-full h-[3.375rem] bg-[#2F2F2F]"></div>
-        <p className="mt-[1.5rem] rounded-[0.25rem] w-[22.56rem] h-[2.375rem] pr-4 py-[.63rem] text-body-l font-medium text-white bg-[#ADB6BE] mx-auto text-right">
-          {value.cvc}
+      <div className="bg-grey-gradient transition-all w-[17.8rem] h-[9.763rem] md:w-[447px] md:h-[245px] rounded-[.375rem] md:rounded-[.625rem] top-8 left-[20%] sm:left-[40%] md:left-[16.12rem] md:top-[29.31rem] absolute shadow">
+        <div className="mt-[0.9rem] md:mt-[1.44rem] w-full h-[2.1rem] md:h-[3.375rem] bg-[#2F2F2F]"></div>
+        <p className="mt-[1.5rem] rounded-[0.25rem] w-[14.43rem] h-[1.85rem] md:w-[22.56rem] md:h-[2.375rem] pr-[0.67rem] md:pr-4 py-[.63rem] font-grotesk text-[0.5625rem] tracking-[0.08038rem] md:text-body-l font-medium text-white bg-[#ADB6BE] mx-auto text-right">
+          {cvc}
         </p>
       </div>
     </div>
