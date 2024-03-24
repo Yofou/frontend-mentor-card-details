@@ -17,7 +17,8 @@
     "prettier": "^3.2.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "vite-plugin-kaioken": "^0.0.8"
+    "vite-plugin-kaioken": "^0.0.8",
+    "vite-plugin-vercel": "^5.0.2"
   },
   "dependencies": {
     "@fontsource-variable/space-grotesk": "^5.0.17",
